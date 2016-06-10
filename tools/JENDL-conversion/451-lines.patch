@@ -1,0 +1,72 @@
+diff -u0r JENDL-AN-2005-linux/B010.dat JENDL-AN-2005-linux-lines/B010.dat
+--- JENDL-AN-2005-linux/B010.dat	2016-02-09 14:46:02.225287904 -0500
++++ JENDL-AN-2005-linux-lines/B010.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -101 +101 @@
+-                                1        451        112          2 525 1451  100
++                                1        451        113          2 525 1451  100
+diff -u0r JENDL-AN-2005-linux/B011.dat JENDL-AN-2005-linux-lines/B011.dat
+--- JENDL-AN-2005-linux/B011.dat	2016-02-09 14:46:02.225287904 -0500
++++ JENDL-AN-2005-linux-lines/B011.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -94 +94 @@
+-                                1        451        105          2 528 1451   93
++                                1        451        106          2 528 1451   93
+diff -u0r JENDL-AN-2005-linux/C012.dat JENDL-AN-2005-linux-lines/C012.dat
+--- JENDL-AN-2005-linux/C012.dat	2016-02-09 14:46:02.233288061 -0500
++++ JENDL-AN-2005-linux-lines/C012.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -66 +66 @@
+-                                1        451         68          2 625 1451   65
++                                1        451         69          2 625 1451   65
+diff -u0r JENDL-AN-2005-linux/C013.dat JENDL-AN-2005-linux-lines/C013.dat
+--- JENDL-AN-2005-linux/C013.dat	2016-02-09 14:46:02.233288061 -0500
++++ JENDL-AN-2005-linux-lines/C013.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -94 +94 @@
+-                                1        451        105          2 628 1451   93
++                                1        451        106          2 628 1451   93
+diff -u0r JENDL-AN-2005-linux/F019.dat JENDL-AN-2005-linux-lines/F019.dat
+--- JENDL-AN-2005-linux/F019.dat	2016-02-09 14:46:02.237288140 -0500
++++ JENDL-AN-2005-linux-lines/F019.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -250 +250 @@
+-                                1        451        282          2 925 1451  249
++                                1        451        283          2 925 1451  249
+diff -u0r JENDL-AN-2005-linux/Li006.dat JENDL-AN-2005-linux-lines/Li006.dat
+--- JENDL-AN-2005-linux/Li006.dat	2016-02-09 14:46:02.241288219 -0500
++++ JENDL-AN-2005-linux-lines/Li006.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -84 +84 @@
+-                                1        451         94          2 325 1451   83
++                                1        451         95          2 325 1451   83
+diff -u0r JENDL-AN-2005-linux/Li007.dat JENDL-AN-2005-linux-lines/Li007.dat
+--- JENDL-AN-2005-linux/Li007.dat	2016-02-09 14:46:02.241288219 -0500
++++ JENDL-AN-2005-linux-lines/Li007.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -92 +92 @@
+-                                1        451        101          2 328 1451   91
++                                1        451        102          2 328 1451   91
+diff -u0r JENDL-AN-2005-linux/N014.dat JENDL-AN-2005-linux-lines/N014.dat
+--- JENDL-AN-2005-linux/N014.dat	2016-02-09 14:46:02.245288299 -0500
++++ JENDL-AN-2005-linux-lines/N014.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -95 +95 @@
+-                                1        451        106          2 725 1451   94
++                                1        451        107          2 725 1451   94
+diff -u0r JENDL-AN-2005-linux/N015.dat JENDL-AN-2005-linux-lines/N015.dat
+--- JENDL-AN-2005-linux/N015.dat	2016-02-09 14:46:02.245288299 -0500
++++ JENDL-AN-2005-linux-lines/N015.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -91 +91 @@
+-                                1        451        100          2 728 1451   90
++                                1        451        101          2 728 1451   90
+diff -u0r JENDL-AN-2005-linux/Na023.dat JENDL-AN-2005-linux-lines/Na023.dat
+--- JENDL-AN-2005-linux/Na023.dat	2016-02-09 14:46:02.249288377 -0500
++++ JENDL-AN-2005-linux-lines/Na023.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -228 +228 @@
+-                                1        451        260          21125 1451  227
++                                1        451        261          21125 1451  227
+diff -u0r JENDL-AN-2005-linux/O017.dat JENDL-AN-2005-linux-lines/O017.dat
+--- JENDL-AN-2005-linux/O017.dat	2016-02-09 14:46:02.249288377 -0500
++++ JENDL-AN-2005-linux-lines/O017.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -94 +94 @@
+-                                1        451        102          2 828 1451   93
++                                1        451        103          2 828 1451   93
+diff -u0r JENDL-AN-2005-linux/O018.dat JENDL-AN-2005-linux-lines/O018.dat
+--- JENDL-AN-2005-linux/O018.dat	2016-02-09 14:46:02.253288456 -0500
++++ JENDL-AN-2005-linux-lines/O018.dat	2016-02-09 15:14:02.920828987 -0500
+@@ -94 +94 @@
+-                                1        451        105          2 831 1451   93
++                                1        451        106          2 831 1451   93

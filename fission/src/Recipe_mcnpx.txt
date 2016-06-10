@@ -1,0 +1,62 @@
+Recipe for linking latest fission library with MCNPX
+Jerome Verbeke, LLNL 6-20-2013
+
+1. replace files
+     LLNLFission.cc
+     fissionEvent.h
+   and add
+     freya.f90
+   in directory src/mcnpx/mcnpc (done by install script on LC)
+
+2. add object freya.o to mcnpcOBJS
+     mcnpcOBJS = mcnpc/mcnpc.o mcnpc/LLNLFission.o mcnpc/freya.o
+   in file src/mcnpx/Makefile (and src/mcnpx/Makefile.in if already generated)
+
+3. add rule
+   %.o : %.f90
+           ${FCOMP} ${F90FLAGS} ${FPPFLAGS} ${FFLAGS} ${FDEFS} ${FCOMPILEONLY} ${FOUTPUT} ${FINPUT}
+   to file src/mcnpx/Makefile (and src/mcnpx/Makefile.in if already created)
+
+4. add line
+  F90FLAGS = -cpp
+  to file src/mcnpx/Makefile.h
+
+5. in file src/mcnpx/mcnpf/imcn.F, after comment 'im7b       11', add line
+      external setcorrel
+
+6. in file src/mcnpx/mcnpf/imcn.F, after comment 'im7c       17', add line
+        call setcorrel(3)
+
+7. in file src/mcnpx/mcnpf/msgtsk.F, after comment 'mh7b       12', add line
+      external setcorrel
+
+8. in file src/mcnpx/mcnpf/msgtsk.F, after comment 'mh7c       10', add line
+        call setcorrel(3)
+   
+9. in file src/mcnpx/mcnpf/acedel.F, after comment 'zdxc        7', add lines
+         if( ifisnu==5) then
+            tn = acenu(jxs(2,iex))
+            ip = nxs(2,iex)
+            tm = tme/1.0d8
+   90       call genfissevt(ip,tm,tn,erg)
+            if (getnnu().eq.0) goto 90
+         endif
+
+10. in file src/mcnpx/mcnpf/acedel.F, after comment '!zd7c       52', remove lines
+        colout(1,i) = getneng(i-1)                                              !/*zd7c       53*/
+        colout(2,i) = getndircosu(i-1)                                          !/*zd7c       54*/
+        td = 1.0d8*getnage(i-1)-tme                                             !/*zd7c       55*/
+    and add lines
+        if(jq.eq.2) then
+          k= 1+floor(abs(rang()-vsmall)*getnnu())
+        else
+          k= i
+        endif
+        colout(1,i) = getneng(k-1)
+        colout(2,i) = getndircosu(k-1)
+        td = 1.0d8*(getnage(k-1)-tm)
+
+NB:
+steps 5-8: These steps are UNIX specific, more lines (4 lines per step) are necessary for non-UNIX platforms
+steps 9-10: These steps are not related to the FREYA build, they fix the following bug:
+            "kcode does not work when the LLNL fission library is in use."

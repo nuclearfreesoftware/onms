@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="NMSGDML-SamplePosition" unit="cm" x="0" y="0" z="-6.45" />
+  </define>
+
+  <materials>
+    <material name="sample_air" state="gas">
+      <MEE unit="eV" value="85.7"/>
+      <D unit="g/cm3" value="0.00120479"/>
+      <fraction n="0.000124000124000124" ref="C"/>
+      <fraction n="0.755267755267755" ref="N"/>
+      <fraction n="0.231781231781232" ref="O"/>
+      <fraction n="0.0128270128270128" ref="Ar"/>
+    </material>
+    <isotope N="252" Z="98" name="Cf252">
+      <atom unit="g/mole" value="252.081627" />
+    </isotope>
+    <element name="El-Cf_of_NMSSourceMaterial">
+      <fraction n="1.000000" ref="Cf252" />
+    </element>
+    <material name="NMSSourceMaterial" state="solid">
+      <D unit="g/cm3" value="-1.000000" />
+      <fraction n="1.000000" ref="El-Cf_of_NMSSourceMaterial" />
+    </material>
+  </materials>
+
+  <solids>
+    <sphere lunit="cm" aunit="deg" deltaphi="360" startphi="0" deltatheta="180" rmin="0" rmax="1" name="SimpleSphereSolid" />
+  </solids>
+
+  <structure>
+    <volume name="NMSLVName-SampleMother">
+      <materialref ref="sample_air"/>
+      <solidref ref="SimpleSphereSolid"/>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="NMSLVName-SampleMother"/>
+  </setup>
+
+</gdml>

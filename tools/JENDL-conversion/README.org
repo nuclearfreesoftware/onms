@@ -1,0 +1,122 @@
+* General Description
+
+
+The data set in JENDL/AN-2005 has been but together in [MMS06] by Murata et al. They include several low-z isotopes. Comprehensive description of measurement data (and references) is given in the report. Generally, they used available data and the mEXIFON code to produce their cross sections. For every cross section, they calculated Thick-Target neutron yields using the common formula and based on [Zie77] stopping powers. They claim to have adjusted the cross sections to closely match yield data from [BC79] and [WS82]. The cross sections are available online for download. The following script downloads and extracts the cross sections into =JENDL-AN-2005=. As the files have Windows newline (CRLF), an additional folder is created with converted files. 
+
+#+BEGIN_SRC sh :tangle download.sh
+#!/bin/bash
+################################################################################
+# Download files and convert Windows newline to Linux newline
+################################################################################
+
+wget -O jendlan2005.tar.gz http://wwwndc.jaea.go.jp/ftpnd/ftp/JENDL/jendlan2005.tar.gz
+tar -xzf jendlan2005.tar.gz 
+mkdir JENDL-AN-2005-linux > /dev/null
+for i in $(ls JENDL-AN-2005/*.dat)
+do
+sed $'s/\r$//' $i > ${i/2005/2005-linux}
+done
+#+END_SRC
+
+#+RESULTS:
+
+** Available Data
+
+|  ZAID | Filename  | MT                       | Reactions                                               |
+|  3006 | Li006.dat | 4, 22, 28, 50-53/91, 201 | (a,n), (a,a'n), (a,pn), (a,n0-3/c), neutron production  |
+|  3007 | Li007.dat | 4, 22, 50-54/91, 201     | (a,n), (a,a'n), (a,n0-4/c), neutron production          |
+|  4009 | Be009.dat | 4, 22, 50-52/91, 201     | (a,n), (a,a'n), (a,n0-2/c), neutron production          |
+|  5010 | B010.dat  | 4, 22, 28, 50-54/91, 201 | (a,n), (a,a'n), (a,pn), (a,n0-4/c), neutron production  |
+|  5011 | B011.dat  | 4, 16, 28, 50-54/91, 201 | (a,n), (a, 2n), (a,pn), (a,n0-4/c), neutron production  |
+|  6012 | C012.dat  | 4, 50, 201               | (a,n), (a,n0) - both equal, neutron production          |
+|  6013 | C013.dat  | 4, 22, 28, 50-54/91, 201 | (a,n), (a,a'n), (a,pn), (a,n0-4/c), neutron production  |
+|  7014 | N014.dat  | 4, 22, 28, 50-54/91, 201 | (a,n), (a,a'n), (a,pn), (a,n0-4/c), neutron production  |
+|  7015 | N015.dat  | 4, 22, 50-54/91, 201     | (a,n), (a,a'n), (a,n0-4/c), neutron production          |
+|  8017 | O017.dat  | 4, 22, 50-53/91, 201     | (a,n), (a,a'n), (a,n0-3/c), neutron production          |
+|  8018 | O018.dat  | 4, 16, 22, 50-54/91, 201 | (a,n), (a, 2n), (a,a'n), (a,n0-4/c), neutron production |
+|  9019 | F019.dat  | 4, 22, 28, 50-77/9, 201  | (a,n), (a,a'n), (a,pn), (a,n0-27/c), neutron production |
+| 11023 | Na023.dat | 4, 28, 50-78/9, 201      | (a,n), (a,pn), (a,n0-28/c), neutron production          |
+| 13027 | Al027.dat | 201                      | neutron production                                      |
+| 14028 | Si028.dat | 201                      | neutron production                                      |
+| 14029 | Si029.dat | 201                      | neutron production                                      |
+| 14030 | Si030.dat | 201                      | neutron production                                      |
+
+** Differences between MT201 and the other MTs (except 50-91)
+
+| O17 | 3 points between 5 and 8 MeV                                        |
+| O18 | 201 contains 2*MT=16 + MT4+MT22  --> production cross section       |
+| Be9 | Differences between 1 and 10 MeV in nano barn scale                 |
+| B10 | Differences between 1 and 10 MeV in nano barn scale                 |
+| B11 | 201 contains 2*MT=16 + MT4+MT22  --> production cross section,      |
+|     | + some differences near 15 MeV and two small dips (nano barn scale) |
+| Li6 | differences in nano barn scale                                      |
+| Li7 | differences in nano barn scale                                      |
+
+
+* ENDF errors (MT451 / headline)
+
+   The files have minor ENDF errors with regard to the used notation. As this does lead to readout errors depending on the used readout routine, the errors have been fixed using patch files.
+   
+   The first =[MAT, 1,451/ blank, blank, MF1, MT1, NC1, MOD1]CONT= entry, which holds the number of lines for every MF/MT entry lists one line less than necessary for the MF=1, MT=451 entry.
+   This error is occuring in B010, B011, C012, C013, F019, Li006, Li007, N014, N015, Na023, O017, O018, not in Al027, Si028, Si029, Si030.
+
+   In addition, all evaluation files have the following headline:
+#+BEGIN_ASCII
+   JENDL/AN-2005                                                     0         0
+#+END_ASCII
+
+but should have
+#+BEGIN_ASCII
+   JENDL/AN-2005                                                     0 0  0    0
+#+END_ASCII
+
+Two patch files, =451-lines.patch= and =headline.patch= were created that contain all necessary changes to correct the missing lines. The patches can be executed using the script =patch.sh=.
+
+#+BEGIN_SRC sh :results output :tangle patch.sh
+#!/bin/bash
+################################################################################
+# Fix ENDF notation using patches
+################################################################################
+
+cp -R JENDL-AN-2005-linux JENDL-AN-2005-linux-patched
+cd JENDL-AN-2005-linux-patched
+patch -s -p1 <../451-lines.patch
+patch -s -p1 <../headline.patch
+#+END_SRC
+
+#+RESULTS:
+
+
+
+* Renaming to ZAID
+
+For some applications, it is easier if files are renamed to ZAID, using ZAID = Z * 1000 + A.
+
+#+BEGIN_SRC python :results output :tangle rename-ZAID.py
+  import os
+  import shutil
+  from pyne import nucname
+  dirname = "JENDL-AN-2005-linux-patched"
+  zaiddirname = dirname + "-ZAID/"
+  if not os.path.exists(zaiddirname):
+      os.makedirs(zaiddirname)
+  files = [ f for f in os.listdir(dirname) if (os.path.isfile(os.path.join(dirname,f)) & f.endswith(".dat")) ]
+  for file in files:
+      nucid = nucname.id(os.path.splitext(file)[0])
+      zaid = nucname.zzzaaa(nucid)
+      zaidfile = str(zaid) + ".dat"
+      shutil.copyfile(os.path.join(dirname , file), os.path.join(zaiddirname, zaidfile ))
+#+END_SRC
+
+#+RESULTS:
+
+* Converting to Geant4
+
+#+BEGIN_SRC python :tangle convert.py
+import endfgeant4converter
+reload(endfgeant4converter)
+egc = endfgeant4converter.ENDFGeant4Converter(inputdir = "JENDL-AN-2005-linux-patched")
+
+egc.convertF0()
+egc.convert()
+#+END_SRC

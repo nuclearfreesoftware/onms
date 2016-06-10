@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="NMSGDML-SamplePosition" unit="cm" x="0" y="0" z="-6.45" />
+  </define>
+
+  <materials>
+<isotope N="58" Z="28" name="Ni58">
+  <atom unit="g/mole" value="57.935342" />
+</isotope>
+<isotope N="60" Z="28" name="Ni60">
+  <atom unit="g/mole" value="59.930786" />
+</isotope>
+<isotope N="61" Z="28" name="Ni61">
+  <atom unit="g/mole" value="60.931056" />
+</isotope>
+<isotope N="62" Z="28" name="Ni62">
+  <atom unit="g/mole" value="61.928345" />
+</isotope>
+<isotope N="64" Z="28" name="Ni64">
+  <atom unit="g/mole" value="63.927967" />
+</isotope>
+<isotope N="63" Z="29" name="Cu63">
+  <atom unit="g/mole" value="62.929598" />
+</isotope>
+<isotope N="65" Z="29" name="Cu65">
+  <atom unit="g/mole" value="64.927790" />
+</isotope>
+<isotope N="238" Z="94" name="Pu238">
+  <atom unit="g/mole" value="238.049560" />
+</isotope>
+<isotope N="239" Z="94" name="Pu239">
+  <atom unit="g/mole" value="239.052164" />
+</isotope>
+<isotope N="240" Z="94" name="Pu240">
+  <atom unit="g/mole" value="240.053814" />
+</isotope>
+<isotope N="241" Z="94" name="Pu241">
+  <atom unit="g/mole" value="241.056852" />
+</isotope>
+<isotope N="242" Z="94" name="Pu242">
+  <atom unit="g/mole" value="242.058743" />
+</isotope>
+<isotope N="241" Z="95" name="Am241">
+  <atom unit="g/mole" value="241.056829" />
+</isotope>
+<element name="El-Ni_of_NMSSourceMaterial">
+  <fraction n="0.680770" ref="Ni58" />
+  <fraction n="0.262230" ref="Ni60" />
+  <fraction n="0.011399" ref="Ni61" />
+  <fraction n="0.036346" ref="Ni62" />
+  <fraction n="0.009255" ref="Ni64" />
+</element>
+<element name="El-Cu_of_NMSSourceMaterial">
+  <fraction n="0.691500" ref="Cu63" />
+  <fraction n="0.308500" ref="Cu65" />
+</element>
+<element name="El-Pu_of_NMSSourceMaterial">
+  <fraction n="0.000040" ref="Pu238" />
+  <fraction n="0.954385" ref="Pu239" />
+  <fraction n="0.045110" ref="Pu240" />
+  <fraction n="0.000317" ref="Pu241" />
+  <fraction n="0.000148" ref="Pu242" />
+</element>
+<element name="El-Am_of_NMSSourceMaterial">
+  <fraction n="1.000000" ref="Am241" />
+</element>
+<material name="NMSSourceMaterial" state="solid">
+  <D unit="g/cm3" value="20.059704" />
+  <fraction n="0.055000" ref="El-Ni_of_NMSSourceMaterial" />
+  <fraction n="0.035000" ref="El-Cu_of_NMSSourceMaterial" />
+  <fraction n="0.907776" ref="El-Pu_of_NMSSourceMaterial" />
+  <fraction n="0.002224" ref="El-Am_of_NMSSourceMaterial" />
+</material>
+
+    <material Z="13" name="G4_Al" state="solid">
+      <MEE unit="eV" value="166"/>
+      <D unit="g/cm3" value="2.699"/>
+      <atom unit="g/mole" value="26.9815"/>
+    </material>
+    <isotope N="54" Z="26" name="Fe54">
+      <atom unit="g/mole" value="53.9396"/>
+    </isotope>
+    <isotope N="56" Z="26" name="Fe56">
+      <atom unit="g/mole" value="55.9349"/>
+    </isotope>
+    <isotope N="57" Z="26" name="Fe57">
+      <atom unit="g/mole" value="56.9354"/>
+    </isotope>
+    <isotope N="58" Z="26" name="Fe58">
+      <atom unit="g/mole" value="57.9333"/>
+    </isotope>
+    <element name="Fe">
+      <fraction n="0.05845" ref="Fe54"/>
+      <fraction n="0.91754" ref="Fe56"/>
+      <fraction n="0.02119" ref="Fe57"/>
+      <fraction n="0.00282" ref="Fe58"/>
+    </element>
+    <isotope N="50" Z="24" name="Cr50">
+      <atom unit="g/mole" value="49.946"/>
+    </isotope>
+    <isotope N="52" Z="24" name="Cr52">
+      <atom unit="g/mole" value="51.9405"/>
+    </isotope>
+    <isotope N="53" Z="24" name="Cr53">
+      <atom unit="g/mole" value="52.9407"/>
+    </isotope>
+    <isotope N="54" Z="24" name="Cr54">
+      <atom unit="g/mole" value="53.9389"/>
+    </isotope>
+    <element name="Cr">
+      <fraction n="0.04345" ref="Cr50"/>
+      <fraction n="0.83789" ref="Cr52"/>
+      <fraction n="0.09501" ref="Cr53"/>
+      <fraction n="0.02365" ref="Cr54"/>
+    </element>
+    <isotope N="58" Z="28" name="Ni58">
+      <atom unit="g/mole" value="57.9353"/>
+    </isotope>
+    <isotope N="60" Z="28" name="Ni60">
+      <atom unit="g/mole" value="59.9308"/>
+    </isotope>
+    <isotope N="61" Z="28" name="Ni61">
+      <atom unit="g/mole" value="60.9311"/>
+    </isotope>
+    <isotope N="62" Z="28" name="Ni62">
+      <atom unit="g/mole" value="61.9283"/>
+    </isotope>
+    <isotope N="64" Z="28" name="Ni64">
+      <atom unit="g/mole" value="63.928"/>
+    </isotope>
+    <element name="Ni">
+      <fraction n="0.680769" ref="Ni58"/>
+      <fraction n="0.262231" ref="Ni60"/>
+      <fraction n="0.011399" ref="Ni61"/>
+      <fraction n="0.036345" ref="Ni62"/>
+      <fraction n="0.009256" ref="Ni64"/>
+    </element>
+    <material name="Aisi304Steel" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="282.839371081725"/>
+      <D unit="g/cm3" value="7.92"/>
+      <fraction n="0.705" ref="Fe"/>
+      <fraction n="0.19" ref="Cr"/>
+      <fraction n="0.105" ref="Ni"/>
+    </material>
+
+    <isotope N="12" Z="6" name="C12">
+      <atom unit="g/mole" value="12"/>
+    </isotope>
+    <isotope N="13" Z="6" name="C13">
+      <atom unit="g/mole" value="13.0034"/>
+    </isotope>
+    <element name="C">
+      <fraction n="0.9893" ref="C12"/>
+      <fraction n="0.0107" ref="C13"/>
+    </element>
+    <isotope N="14" Z="7" name="N14">
+      <atom unit="g/mole" value="14.0031"/>
+    </isotope>
+    <isotope N="15" Z="7" name="N15">
+      <atom unit="g/mole" value="15.0001"/>
+    </isotope>
+    <element name="N">
+      <fraction n="0.99632" ref="N14"/>
+      <fraction n="0.00368" ref="N15"/>
+    </element>
+    <isotope N="16" Z="8" name="O16">
+      <atom unit="g/mole" value="15.9949"/>
+    </isotope>
+    <isotope N="17" Z="8" name="O17">
+      <atom unit="g/mole" value="16.9991"/>
+    </isotope>
+    <isotope N="18" Z="8" name="O18">
+      <atom unit="g/mole" value="17.9992"/>
+    </isotope>
+    <element name="O">
+      <fraction n="0.99757" ref="O16"/>
+      <fraction n="0.00038" ref="O17"/>
+      <fraction n="0.00205" ref="O18"/>
+    </element>
+    <isotope N="36" Z="18" name="Ar36">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar38">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar40">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Ar">
+      <fraction n="0.003365" ref="Ar36"/>
+      <fraction n="0.000632" ref="Ar38"/>
+      <fraction n="0.996003" ref="Ar40"/>
+    </element>
+    <material name="G4_AIR" state="gas">
+      <MEE unit="eV" value="85.7"/>
+      <D unit="g/cm3" value="0.00120479"/>
+      <fraction n="0.000124000124000124" ref="C"/>
+      <fraction n="0.755267755267755" ref="N"/>
+      <fraction n="0.231781231781232" ref="O"/>
+      <fraction n="0.0128270128270128" ref="Ar"/>
+    </material>
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="SolidPu" rmax="3.75" rmin="0" startphi="0" z="15.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="totalAlCase" rmax="7" rmin="0" startphi="0" z="46"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="innerAlCase" rmax="4" rmin="0" startphi="0" z="31"/>
+    <subtraction name="AlCaseSolid">
+      <first ref="totalAlCase"/>
+      <second ref="innerAlCase"/>
+      <position name="AlCaseSolid_pos" unit="mm" x="0" y="0" z="-2.5"/>
+    </subtraction>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="PerlaCavity" rmax="11.5" rmin="0" startphi="0" z="69.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="totalPerla" rmax="18" rmin="0" startphi="0" z="90"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="outerPerlaNon" rmax="18.1" rmin="12.5" startphi="0" z="65"/>
+    <subtraction name="PerlaSolid">
+      <first ref="totalPerla"/>
+      <second ref="outerPerlaNon"/>
+      <position name="PerlaSolid_pos" unit="mm" x="0" y="0" z="-12.6"/>
+    </subtraction>
+  </solids>
+
+  <structure>
+    <volume name="PM1">
+      <materialref ref="NMSSourceMaterial"/>
+      <solidref ref="SolidPu"/>
+    </volume>
+    <volume name="AlCase">
+      <materialref ref="G4_Al"/>
+      <solidref ref="AlCaseSolid"/>
+    </volume>
+    <volume name="PerlaCavity">
+      <materialref ref="Aisi304Steel"/>
+      <solidref ref="PerlaCavity"/>
+      <physvol name="NMSSourceVolume">
+        <volumeref ref="PM1"/>
+        <position name="PM1_pos" unit="mm" x="0" y="0" z="-22.0"/>
+      </physvol>
+      <physvol name="AlCase">
+        <volumeref ref="AlCase"/>
+        <position name="AlCase_pos" unit="mm" x="0" y="0" z="-11.75"/>
+      </physvol>
+    </volume>
+    <volume name="NMSLVName-SampleMother">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="PerlaSolid"/>
+      <physvol name="PerlaCavity">
+        <volumeref ref="PerlaCavity"/>
+        <position name="PerlaCavity_pos" unit="mm" x="0" y="0" z="-7.25"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="NMSLVName-SampleMother"/>
+  </setup>
+
+</gdml>

@@ -1,0 +1,42 @@
+#
+# Apply copyright
+#
+# Put copyright text at the beginning of all source code files.
+#
+# We do not want source code with copyright checked in, so only allow this to
+# work on non-SVN directories. Makefile will stop user from doing this on SVN version.
+#
+# Doug Wright
+
+TEXT      := COPYRIGHT.TXT
+TEXTFREYA := COPYRIGHT_FREYA.TXT
+
+
+srcC := $(wildcard ../include/*.h  *.cc)
+srcF := $(wildcard ../include/*.inc)
+srcFREYA := $(wildcard *.F90)
+
+#....Add copyright text to all source code
+copyright: copyrightExport copyrightC copyrightF copyrightFREYA
+
+#....Only allow this to run on non-SVN directory
+copyrightExport:
+	@test ! -e .svn || (echo Can not add copyright to SVN version, please do svn export first; false)
+
+#....C style comment
+copyrightC: $(srcC)
+	@for file in $?; do cat $(TEXT) $$file > tmp; mv tmp $$file; done
+
+#....Fortran style comment
+#    TEXTF = Fortran version of copyright text, i.e. with ! in first column
+TEXTF     := $(TEXT)_FORTRAN
+copyrightF: $(srcF)
+	@cat $(TEXT) | awk '{ print "! " $$0 }' > $(TEXTF)  # create Fortran version of copyright text
+	@for file in $?; do cat $(TEXTF) $$file > tmp; mv tmp $$file; done
+	@rm $(TEXTF)
+
+#....FREYA copyright
+copyrightFREYA: $(srcFREYA)
+	@for file in $?; do cat $(TEXTFREYA) $$file > tmp; mv tmp $$file; done
+
+.PHONY: copyrightExport copyrightC copyrightF copyrightFREYA

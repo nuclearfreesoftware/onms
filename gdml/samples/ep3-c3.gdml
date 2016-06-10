@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="NMSGDML-SamplePosition" unit="mm" x="0" y="0" z="0" />
+  </define>
+
+  <materials>
+<isotope N="69" Z="31" name="Ga69">
+  <atom unit="g/mole" value="68.925574" />
+</isotope>
+<isotope N="71" Z="31" name="Ga71">
+  <atom unit="g/mole" value="70.924703" />
+</isotope>
+<isotope N="234" Z="92" name="U234">
+  <atom unit="g/mole" value="234.040952" />
+</isotope>
+<isotope N="235" Z="92" name="U235">
+  <atom unit="g/mole" value="235.043930" />
+</isotope>
+<isotope N="236" Z="92" name="U236">
+  <atom unit="g/mole" value="236.045568" />
+</isotope>
+<isotope N="237" Z="93" name="Np237">
+  <atom unit="g/mole" value="237.048174" />
+</isotope>
+<isotope N="238" Z="94" name="Pu238">
+  <atom unit="g/mole" value="238.049560" />
+</isotope>
+<isotope N="239" Z="94" name="Pu239">
+  <atom unit="g/mole" value="239.052164" />
+</isotope>
+<isotope N="240" Z="94" name="Pu240">
+  <atom unit="g/mole" value="240.053814" />
+</isotope>
+<isotope N="241" Z="94" name="Pu241">
+  <atom unit="g/mole" value="241.056852" />
+</isotope>
+<isotope N="242" Z="94" name="Pu242">
+  <atom unit="g/mole" value="242.058743" />
+</isotope>
+<isotope N="241" Z="95" name="Am241">
+  <atom unit="g/mole" value="241.056829" />
+</isotope>
+<element name="El-Ga_of_NMSSourceMaterial">
+  <fraction n="0.601080" ref="Ga69" />
+  <fraction n="0.398920" ref="Ga71" />
+</element>
+<element name="El-U_of_NMSSourceMaterial">
+  <fraction n="0.182483" ref="U234" />
+  <fraction n="0.400945" ref="U235" />
+  <fraction n="0.416572" ref="U236" />
+</element>
+<element name="El-Np_of_NMSSourceMaterial">
+  <fraction n="1.000000" ref="Np237" />
+</element>
+<element name="El-Pu_of_NMSSourceMaterial">
+  <fraction n="0.001212" ref="Pu238" />
+  <fraction n="0.763611" ref="Pu239" />
+  <fraction n="0.215811" ref="Pu240" />
+  <fraction n="0.011689" ref="Pu241" />
+  <fraction n="0.007677" ref="Pu242" />
+</element>
+<element name="El-Am_of_NMSSourceMaterial">
+  <fraction n="1.000000" ref="Am241" />
+</element>
+<material name="NMSSourceMaterial" state="solid">
+  <D unit="g/cm3" value="19.052550" />
+  <fraction n="0.015000" ref="El-Ga_of_NMSSourceMaterial" />
+  <fraction n="0.000546" ref="El-U_of_NMSSourceMaterial" />
+  <fraction n="0.000365" ref="El-Np_of_NMSSourceMaterial" />
+  <fraction n="0.958907" ref="El-Pu_of_NMSSourceMaterial" />
+  <fraction n="0.025182" ref="El-Am_of_NMSSourceMaterial" />
+</material>
+
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="PuCylinder" rmax="16.5" rmin="0" startphi="0" z="0.6"/>
+  </solids>
+
+  <structure>
+    <volume name="NMSLVName-SampleMother">
+      <materialref ref="NMSSourceMaterial"/>
+      <solidref ref="PuCylinder"/>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="NMSLVName-SampleMother"/>
+  </setup>
+
+</gdml>

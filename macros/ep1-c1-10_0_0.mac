@@ -1,0 +1,56 @@
+# Detector Settings
+/NMS/analysis/detectorvolume HE1-He
+/NMS/analysis/lostvolume PolyethyleneArea
+
+# Source Geometry
+/NMS/source/geometry/type Point
+/NMS/source/geometry/centre 0 0 0
+
+# Source Volume & Material
+/NMS/source/material NMSSourceMaterial
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Source Type and settings
+/NMS/source/sfg false
+/NMS/source/sfn false
+/NMS/source/alpha false
+/NMS/source/neutronAlphaN true
+/NMS/source/activity 26800
+
+# AlphaN Settings
+/NMS/source/alphan/directionSampling 0
+/NMS/source/alphan/energySampling 3
+/NMS/source/alphan/positionSampling 0
+# /NMS/source/alphan/energy   - not given
+/NMS/source/alphan/energyFilename amli.alphan
+/NMS/source/alphan/activityCalculation 0
+/NMS/source/alphan/activity 1
+
+# Runtime settings
+/random/setSeeds 28607207 36633217
+/NMS/run/runtime 5.0
+/NMS/run/printmodulo 1000
+/NMS/analysis/eventoffset 0	
+
+# Run
+/NMS/run/beamOnRuntime 1
+
+# Create some output
+/NMS/analysis/efficiency 0.373
+/NMS/source/dumpstatus
+/NMS/analysis/writesourceneutronenergies ep1-c1_0_0
+/NMS/source/alphan/writeEnergyFile ep1-c1_0_0
+/NMS/analysis/showresults
+/NMS/analysis/writeincludepulsetrain true
+/NMS/analysis/writeresults ep1-c1_0_0

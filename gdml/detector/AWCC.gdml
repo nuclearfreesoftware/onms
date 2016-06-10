@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define/>
+
+  <materials>
+    <material Z="13" name="G4_Al" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="166"/>
+      <D unit="g/cm3" value="2.699"/>
+      <atom unit="g/mole" value="26.9815"/>
+    </material>
+    <isotope N="54" Z="26" name="Fe54">
+      <atom unit="g/mole" value="53.9396"/>
+    </isotope>
+    <isotope N="56" Z="26" name="Fe56">
+      <atom unit="g/mole" value="55.9349"/>
+    </isotope>
+    <isotope N="57" Z="26" name="Fe57">
+      <atom unit="g/mole" value="56.9354"/>
+    </isotope>
+    <isotope N="58" Z="26" name="Fe58">
+      <atom unit="g/mole" value="57.9333"/>
+    </isotope>
+    <element name="Fe">
+      <fraction n="0.05845" ref="Fe54"/>
+      <fraction n="0.91754" ref="Fe56"/>
+      <fraction n="0.02119" ref="Fe57"/>
+      <fraction n="0.00282" ref="Fe58"/>
+    </element>
+    <isotope N="50" Z="24" name="Cr50">
+      <atom unit="g/mole" value="49.946"/>
+    </isotope>
+    <isotope N="52" Z="24" name="Cr52">
+      <atom unit="g/mole" value="51.9405"/>
+    </isotope>
+    <isotope N="53" Z="24" name="Cr53">
+      <atom unit="g/mole" value="52.9407"/>
+    </isotope>
+    <isotope N="54" Z="24" name="Cr54">
+      <atom unit="g/mole" value="53.9389"/>
+    </isotope>
+    <element name="Cr">
+      <fraction n="0.04345" ref="Cr50"/>
+      <fraction n="0.83789" ref="Cr52"/>
+      <fraction n="0.09501" ref="Cr53"/>
+      <fraction n="0.02365" ref="Cr54"/>
+    </element>
+    <isotope N="58" Z="28" name="Ni58">
+      <atom unit="g/mole" value="57.9353"/>
+    </isotope>
+    <isotope N="60" Z="28" name="Ni60">
+      <atom unit="g/mole" value="59.9308"/>
+    </isotope>
+    <isotope N="61" Z="28" name="Ni61">
+      <atom unit="g/mole" value="60.9311"/>
+    </isotope>
+    <isotope N="62" Z="28" name="Ni62">
+      <atom unit="g/mole" value="61.9283"/>
+    </isotope>
+    <isotope N="64" Z="28" name="Ni64">
+      <atom unit="g/mole" value="63.928"/>
+    </isotope>
+    <element name="Ni">
+      <fraction n="0.680769" ref="Ni58"/>
+      <fraction n="0.262231" ref="Ni60"/>
+      <fraction n="0.011399" ref="Ni61"/>
+      <fraction n="0.036345" ref="Ni62"/>
+      <fraction n="0.009256" ref="Ni64"/>
+    </element>
+    <material name="Aisi304Steel" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="282.839371081725"/>
+      <D unit="g/cm3" value="7.92"/>
+      <fraction n="0.705" ref="Fe"/>
+      <fraction n="0.19" ref="Cr"/>
+      <fraction n="0.105" ref="Ni"/>
+    </material>
+    <!-- Manual Addition for Helium start -->
+    <isotope N="3" Z="2" name="isoHe3">
+      <atom unit="g/mole" value="3.01603"/>
+    </isotope>
+    <element name="elHe3">
+      <fraction n="1" ref="isoHe3" />
+    </element>
+    <material Z="2" name="matHe3" state="gas">
+      <T unit="K" value="273"/>
+      <P unit="pascal" value="405300"/>
+      <MEE unit="eV" value="41.8"/>
+      <D unit="g/cm3" value="0.000501725"/>
+      <fraction n="1" ref="elHe3" />
+    </material>
+    <!-- Manual Addition for Helium end -->
+    <isotope N="12" Z="6" name="C12">
+      <atom unit="g/mole" value="12"/>
+    </isotope>
+    <isotope N="13" Z="6" name="C13">
+      <atom unit="g/mole" value="13.0034"/>
+    </isotope>
+    <element name="C">
+      <fraction n="0.9893" ref="C12"/>
+      <fraction n="0.0107" ref="C13"/>
+    </element>
+    <isotope N="14" Z="7" name="N14">
+      <atom unit="g/mole" value="14.0031"/>
+    </isotope>
+    <isotope N="15" Z="7" name="N15">
+      <atom unit="g/mole" value="15.0001"/>
+    </isotope>
+    <element name="N">
+      <fraction n="0.99632" ref="N14"/>
+      <fraction n="0.00368" ref="N15"/>
+    </element>
+    <isotope N="16" Z="8" name="O16">
+      <atom unit="g/mole" value="15.9949"/>
+    </isotope>
+    <isotope N="17" Z="8" name="O17">
+      <atom unit="g/mole" value="16.9991"/>
+    </isotope>
+    <isotope N="18" Z="8" name="O18">
+      <atom unit="g/mole" value="17.9992"/>
+    </isotope>
+    <element name="O">
+      <fraction n="0.99757" ref="O16"/>
+      <fraction n="0.00038" ref="O17"/>
+      <fraction n="0.00205" ref="O18"/>
+    </element>
+    <isotope N="36" Z="18" name="Ar36">
+      <atom unit="g/mole" value="35.9675"/>
+    </isotope>
+    <isotope N="38" Z="18" name="Ar38">
+      <atom unit="g/mole" value="37.9627"/>
+    </isotope>
+    <isotope N="40" Z="18" name="Ar40">
+      <atom unit="g/mole" value="39.9624"/>
+    </isotope>
+    <element name="Ar">
+      <fraction n="0.003365" ref="Ar36"/>
+      <fraction n="0.000632" ref="Ar38"/>
+      <fraction n="0.996003" ref="Ar40"/>
+    </element>
+    <material name="G4_AIR" state="gas">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="85.7"/>
+      <D unit="g/cm3" value="0.00120479"/>
+      <fraction n="0.000124000124000124" ref="C"/>
+      <fraction n="0.755267755267755" ref="N"/>
+      <fraction n="0.231781231781232" ref="O"/>
+      <fraction n="0.0128270128270128" ref="Ar"/>
+    </material>
+    <isotope N="1" Z="1" name="TS_H1">
+      <atom unit="g/mole" value="1.00782503081372"/>
+    </isotope>
+    <isotope N="2" Z="1" name="TS_H2">
+      <atom unit="g/mole" value="2.01410199966617"/>
+    </isotope>
+    <element name="TS_H_of_Polyethylene">
+      <fraction n="0.999885" ref="TS_H1"/>
+      <fraction n="0.000115" ref="TS_H2"/>
+    </element>
+    <material name="HD-PE" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="56.5182975271738"/>
+      <D unit="g/cm3" value="0.955"/>
+      <fraction n="0.856286687932862" ref="C"/>
+      <fraction n="0.143713312067138" ref="TS_H_of_Polyethylene"/>
+    </material>
+    <isotope N="106" Z="48" name="Cd106">
+      <atom unit="g/mole" value="105.906"/>
+    </isotope>
+    <isotope N="108" Z="48" name="Cd108">
+      <atom unit="g/mole" value="107.904"/>
+    </isotope>
+    <isotope N="110" Z="48" name="Cd110">
+      <atom unit="g/mole" value="109.903"/>
+    </isotope>
+    <isotope N="111" Z="48" name="Cd111">
+      <atom unit="g/mole" value="110.904"/>
+    </isotope>
+    <isotope N="112" Z="48" name="Cd112">
+      <atom unit="g/mole" value="111.903"/>
+    </isotope>
+    <isotope N="113" Z="48" name="Cd113">
+      <atom unit="g/mole" value="112.904"/>
+    </isotope>
+    <isotope N="114" Z="48" name="Cd114">
+      <atom unit="g/mole" value="113.903"/>
+    </isotope>
+    <isotope N="116" Z="48" name="Cd116">
+      <atom unit="g/mole" value="115.905"/>
+    </isotope>
+    <element name="Cd">
+      <fraction n="0.0125" ref="Cd106"/>
+      <fraction n="0.0089" ref="Cd108"/>
+      <fraction n="0.1249" ref="Cd110"/>
+      <fraction n="0.128" ref="Cd111"/>
+      <fraction n="0.2413" ref="Cd112"/>
+      <fraction n="0.1222" ref="Cd113"/>
+      <fraction n="0.2873" ref="Cd114"/>
+      <fraction n="0.0749" ref="Cd116"/>
+    </element>
+    <material name="G4_Cd" state="solid">
+      <T unit="K" value="293.15"/>
+      <MEE unit="eV" value="469"/>
+      <D unit="g/cm3" value="8.65"/>
+      <fraction n="1" ref="Cd"/>
+    </material>
+    <isotope N="1" Z="1" name="H1">
+      <atom unit="g/mole" value="1.00782503081372"/>
+    </isotope>
+    <isotope N="2" Z="1" name="H2">
+      <atom unit="g/mole" value="2.01410199966617"/>
+    </isotope>
+    <element name="H">
+      <fraction n="0.999885" ref="H1"/>
+      <fraction n="0.000115" ref="H2"/>
+    </element>
+    <material name="G4_Galactic" state="gas">
+      <T unit="K" value="2.73"/>
+      <P unit="pascal" value="3e-18"/>
+      <MEE unit="eV" value="21.8"/>
+      <D unit="g/cm3" value="1e-25"/>
+      <fraction n="1" ref="H"/>
+    </material>
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="alCladdingSolid" rmax="12.7" rmin="12.3" startphi="0" z="578.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="alBottomSolid" rmax="12.7" rmin="0" startphi="0" z="0.4"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="bottomElectronicsSolid" rmax="12.3" rmin="0" startphi="0" z="6.6"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="bottomInactiveHeSolid" rmax="12.3" rmin="0" startphi="0" z="14.4"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="innerHeTubeSolid" rmax="12.3" rmin="0" startphi="0" z="508"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="topInactiveHeSolid" rmax="12.3" rmin="0" startphi="0" z="9.9"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="topElectronicsSolid" rmax="12.3" rmin="0" startphi="0" z="40"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="totalTubeSolid" rmax="14.2875" rmin="0" startphi="0" z="607.8"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="polyecylinder" rmax="236.55" rmin="114.3" startphi="0" z="607.8"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="RadialCadmiumLinerSolid" rmax="114.3" rmin="113.9" startphi="0" z="601.9"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="RadiumAluminiumLinerSolid" rmax="113.9" rmin="112.4" startphi="0" z="601.9"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="LowerCdLinerSolid" rmax="112.4" rmin="0" startphi="0" z="0.4"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="LowerAlLinerSolid" rmax="112.4" rmin="0" startphi="0" z="1.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="UpperAlLinerLogic" rmax="112.4" rmin="0" startphi="0" z="1.5"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="UpperCdLinerSolid" rmax="112.4" rmin="0" startphi="0" z="0.4"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="DetectorCavitySolid" rmax="112.4" rmin="0" startphi="0" z="350"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="LowerPolyePlugSolid" rmax="112.4" rmin="0" startphi="0" z="127"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="UpperPolyePlugSolid" rmax="112.4" rmin="0" startphi="0" z="127"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="LowerAlLayerSolid" rmax="238.55" rmin="0" startphi="0" z="12"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="OuterAlLayerSolid" rmax="238.55" rmin="236.55" startphi="0" z="607.8"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="MiddleAirBlockSolid" rmax="112.4" rmin="0" startphi="0" z="89.25"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="OuterAirBlockSolid" rmax="238.55" rmin="221.488" startphi="0" z="88.9"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="topTubeElectronicsSolid" rmax="12.3" rmin="0" startphi="0" z="5.95"/>
+    <tube aunit="deg" deltaphi="360" lunit="mm" name="UpperAlBlockSolid" rmax="238.55" rmin="0" startphi="0" z="95.25"/>
+    <box lunit="mm" name="world" x="4000" y="4000" z="4000"/>
+  </solids>
+
+  <structure>
+    <volume name="alCladdingLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="alCladdingSolid"/>
+    </volume>
+    <volume name="alBottomLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="alBottomSolid"/>
+    </volume>
+    <volume name="bottomElectronicsLogic">
+      <materialref ref="Aisi304Steel"/>
+      <solidref ref="bottomElectronicsSolid"/>
+    </volume>
+    <volume name="bottomInactiveHeLogic">
+      <materialref ref="matHe3"/>
+      <solidref ref="bottomInactiveHeSolid"/>
+    </volume>
+    <volume name="innerHeTubeLogic">
+      <materialref ref="matHe3"/>
+      <solidref ref="innerHeTubeSolid"/>
+    </volume>
+    <volume name="topInactiveHeLogic">
+      <materialref ref="matHe3"/>
+      <solidref ref="topInactiveHeSolid"/>
+    </volume>
+    <volume name="topElectronicsLogic">
+      <materialref ref="Aisi304Steel"/>
+      <solidref ref="topElectronicsSolid"/>
+    </volume>
+    <volume name="totalTubeLogic">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="totalTubeSolid"/>
+      <physvol name="HeTube-Al-Cladding">
+        <volumeref ref="alCladdingLogic"/>
+        <position name="HeTube-Al-Cladding_pos" unit="mm" x="0" y="0" z="14.65"/>
+      </physvol>
+      <physvol name="HeTube-Al-Bottom">
+        <volumeref ref="alBottomLogic"/>
+        <position name="HeTube-Al-Bottom_pos" unit="mm" x="0" y="0" z="-275.2"/>
+      </physvol>
+      <physvol name="HeTube-Bottom-Electronics">
+        <volumeref ref="bottomElectronicsLogic"/>
+        <position name="HeTube-Bottom-Electronics_pos" unit="mm" x="0" y="0" z="-271.7"/>
+      </physvol>
+      <physvol name="HeTube-Bottom-InactiveHe">
+        <volumeref ref="bottomInactiveHeLogic"/>
+        <position name="HeTube-Bottom-InactiveHe_pos" unit="mm" x="0" y="0" z="-261.2"/>
+      </physvol>
+      <physvol name="HE1-HeTube">
+        <volumeref ref="innerHeTubeLogic"/>
+      </physvol>
+      <physvol name="HeTube-Top-InactiveHe">
+        <volumeref ref="topInactiveHeLogic"/>
+        <position name="HeTube-Top-InactiveHe_pos" unit="mm" x="0" y="0" z="258.95"/>
+      </physvol>
+      <physvol name="HeTube-Top-Electronics">
+        <volumeref ref="topElectronicsLogic"/>
+        <position name="HeTube-Top-Electronics_pos" unit="mm" x="0" y="0" z="283.9"/>
+      </physvol>
+    </volume>
+    <volume name="PolyethyleneAreaLogic">
+      <materialref ref="HD-PE"/>
+      <solidref ref="polyecylinder"/>
+      <physvol name="HE0-totalTube-inner-1-0">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-0_pos" unit="mm" x="154" y="0" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-1">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-1_pos" unit="mm" x="147.158212091066" y="45.3922968592792" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-2">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-2_pos" unit="mm" x="127.240771244663" y="86.7512889417978" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-3">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-3_pos" unit="mm" x="96.017429486245" y="120.402048300077" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-4">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-4_pos" unit="mm" x="56.2625177524248" y="143.354557291207" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-5">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-5_pos" unit="mm" x="11.5084344123093" y="153.569384765902" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-6">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-6_pos" unit="mm" x="-34.2682238292724" y="150.138898476001" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-7">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-7_pos" unit="mm" x="-77" y="133.367912182804" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-8">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-8_pos" unit="mm" x="-112.889988261793" y="104.746601616722" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-9">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-9_pos" unit="mm" x="-138.749205656972" y="66.8180958241039" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-10">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-10_pos" unit="mm" x="-152.27994723867" y="22.9525089911309" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-11">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-11_pos" unit="mm" x="-152.27994723867" y="-22.9525089911308" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-12">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-12_pos" unit="mm" x="-138.749205656972" y="-66.8180958241039" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-13">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-13_pos" unit="mm" x="-112.889988261793" y="-104.746601616722" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-14">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-14_pos" unit="mm" x="-77" y="-133.367912182803" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-15">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-15_pos" unit="mm" x="-34.2682238292724" y="-150.138898476001" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-16">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-16_pos" unit="mm" x="11.5084344123093" y="-153.569384765902" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-17">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-17_pos" unit="mm" x="56.2625177524248" y="-143.354557291207" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-18">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-18_pos" unit="mm" x="96.0174294862449" y="-120.402048300077" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-19">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-19_pos" unit="mm" x="127.240771244663" y="-86.7512889417978" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-1-20">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-1-20_pos" unit="mm" x="147.158212091066" y="-45.3922968592792" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-0">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-0_pos" unit="mm" x="-190.5" y="0" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-1">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-1_pos" unit="mm" x="-182.03661950226" y="-56.1508607252773" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-2">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-2_pos" unit="mm" x="-157.398486507197" y="-107.31247106112" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-3">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-3_pos" unit="mm" x="-118.774807254089" y="-148.93889741016" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-4">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-4_pos" unit="mm" x="-69.5974651417982" y="-177.331449116721" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-5">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-5_pos" unit="mm" x="-14.2360828282138" y="-189.967323363015" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-6">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-6_pos" unit="mm" x="42.3902379186779" y="-185.723767270637" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-7">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-7_pos" unit="mm" x="95.25" y="-164.977839420935" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-8">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-8_pos" unit="mm" x="139.646381583582" y="-129.57290654536" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-9">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-9_pos" unit="mm" x="171.634569335411" y="-82.6548523018947" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-10">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-10_pos" unit="mm" x="188.372272395887" y="-28.3925517065612" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-11">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-11_pos" unit="mm" x="188.372272395887" y="28.3925517065612" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-12">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-12_pos" unit="mm" x="171.634569335411" y="82.6548523018948" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-13">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-13_pos" unit="mm" x="139.646381583582" y="129.57290654536" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-14">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-14_pos" unit="mm" x="95.2499999999999" y="164.977839420935" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-15">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-15_pos" unit="mm" x="42.3902379186778" y="185.723767270637" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-16">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-16_pos" unit="mm" x="-14.2360828282139" y="189.967323363015" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-17">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-17_pos" unit="mm" x="-69.5974651417982" y="177.331449116721" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-18">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-18_pos" unit="mm" x="-118.774807254089" y="148.938897410159" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-19">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-19_pos" unit="mm" x="-157.398486507197" y="107.31247106112" z="0"/>
+      </physvol>
+      <physvol name="HE0-totalTube-inner-2-20">
+        <volumeref ref="totalTubeLogic"/>
+        <position name="HE0-totalTube-inner-2-20_pos" unit="mm" x="-182.03661950226" y="56.1508607252771" z="0"/>
+      </physvol>
+    </volume>
+    <volume name="RadialCadmiumLinerLogic">
+      <materialref ref="G4_Cd"/>
+      <solidref ref="RadialCadmiumLinerSolid"/>
+    </volume>
+    <volume name="RadialAluminiumLinerLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="RadiumAluminiumLinerSolid"/>
+    </volume>
+    <volume name="LowerCdLinerLogic">
+      <materialref ref="G4_Cd"/>
+      <solidref ref="LowerCdLinerSolid"/>
+    </volume>
+    <volume name="LowerAlLinerLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="LowerAlLinerSolid"/>
+    </volume>
+    <volume name="UpperAlLinerSolid">
+      <materialref ref="G4_Al"/>
+      <solidref ref="UpperAlLinerLogic"/>
+    </volume>
+    <volume name="UpperCdLinerLogic">
+      <materialref ref="G4_Cd"/>
+      <solidref ref="UpperCdLinerSolid"/>
+    </volume>
+    <volume name="NMSLVName-DetectorCavity">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="DetectorCavitySolid"/>
+    </volume>
+    <volume name="LowerPolyePlugLogic">
+      <materialref ref="HD-PE"/>
+      <solidref ref="LowerPolyePlugSolid"/>
+    </volume>
+    <volume name="UpperPolyePlugLogic">
+      <materialref ref="HD-PE"/>
+      <solidref ref="UpperPolyePlugSolid"/>
+    </volume>
+    <volume name="LowerAlLayerLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="LowerAlLayerSolid"/>
+    </volume>
+    <volume name="OuterAlLayerLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="OuterAlLayerSolid"/>
+    </volume>
+    <volume name="MiddleAirBlockLogic">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="MiddleAirBlockSolid"/>
+    </volume>
+    <volume name="OuterAirBlockLogic">
+      <materialref ref="G4_AIR"/>
+      <solidref ref="OuterAirBlockSolid"/>
+    </volume>
+    <volume name="topTubeElectronicsLogic">
+      <materialref ref="Aisi304Steel"/>
+      <solidref ref="topTubeElectronicsSolid"/>
+    </volume>
+    <volume name="UpperAlBlockLogic">
+      <materialref ref="G4_Al"/>
+      <solidref ref="UpperAlBlockSolid"/>
+      <physvol name="MiddleAirBlock">
+        <volumeref ref="MiddleAirBlockLogic"/>
+        <position name="MiddleAirBlock_pos" unit="mm" x="0" y="0" z="3"/>
+      </physvol>
+      <physvol name="OuterAirBlock">
+        <volumeref ref="OuterAirBlockLogic"/>
+        <position name="OuterAirBlock_pos" unit="mm" x="0" y="0" z="3.175"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-0">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-0_pos" unit="mm" x="154" y="0" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-1">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-1_pos" unit="mm" x="147.158212091066" y="45.3922968592792" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-2">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-2_pos" unit="mm" x="127.240771244663" y="86.7512889417978" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-3">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-3_pos" unit="mm" x="96.017429486245" y="120.402048300077" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-4">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-4_pos" unit="mm" x="56.2625177524248" y="143.354557291207" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-5">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-5_pos" unit="mm" x="11.5084344123093" y="153.569384765902" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-6">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-6_pos" unit="mm" x="-34.2682238292724" y="150.138898476001" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-7">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-7_pos" unit="mm" x="-77" y="133.367912182804" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-8">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-8_pos" unit="mm" x="-112.889988261793" y="104.746601616722" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-9">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-9_pos" unit="mm" x="-138.749205656972" y="66.8180958241039" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-10">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-10_pos" unit="mm" x="-152.27994723867" y="22.9525089911309" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-11">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-11_pos" unit="mm" x="-152.27994723867" y="-22.9525089911308" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-12">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-12_pos" unit="mm" x="-138.749205656972" y="-66.8180958241039" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-13">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-13_pos" unit="mm" x="-112.889988261793" y="-104.746601616722" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-14">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-14_pos" unit="mm" x="-77" y="-133.367912182803" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-15">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-15_pos" unit="mm" x="-34.2682238292724" y="-150.138898476001" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-16">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-16_pos" unit="mm" x="11.5084344123093" y="-153.569384765902" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-17">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-17_pos" unit="mm" x="56.2625177524248" y="-143.354557291207" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-18">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-18_pos" unit="mm" x="96.0174294862449" y="-120.402048300077" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-19">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-19_pos" unit="mm" x="127.240771244663" y="-86.7512889417978" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-1-20">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-1-20_pos" unit="mm" x="147.158212091066" y="-45.3922968592792" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-0">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-0_pos" unit="mm" x="-190.5" y="0" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-1">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-1_pos" unit="mm" x="-182.03661950226" y="-56.1508607252773" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-2">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-2_pos" unit="mm" x="-157.398486507197" y="-107.31247106112" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-3">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-3_pos" unit="mm" x="-118.774807254089" y="-148.93889741016" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-4">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-4_pos" unit="mm" x="-69.5974651417982" y="-177.331449116721" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-5">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-5_pos" unit="mm" x="-14.2360828282138" y="-189.967323363015" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-6">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-6_pos" unit="mm" x="42.3902379186779" y="-185.723767270637" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-7">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-7_pos" unit="mm" x="95.25" y="-164.977839420935" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-8">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-8_pos" unit="mm" x="139.646381583582" y="-129.57290654536" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-9">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-9_pos" unit="mm" x="171.634569335411" y="-82.6548523018947" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-10">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-10_pos" unit="mm" x="188.372272395887" y="-28.3925517065612" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-11">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-11_pos" unit="mm" x="188.372272395887" y="28.3925517065612" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-12">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-12_pos" unit="mm" x="171.634569335411" y="82.6548523018948" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-13">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-13_pos" unit="mm" x="139.646381583582" y="129.57290654536" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-14">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-14_pos" unit="mm" x="95.2499999999999" y="164.977839420935" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-15">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-15_pos" unit="mm" x="42.3902379186778" y="185.723767270637" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-16">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-16_pos" unit="mm" x="-14.2360828282139" y="189.967323363015" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-17">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-17_pos" unit="mm" x="-69.5974651417982" y="177.331449116721" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-18">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-18_pos" unit="mm" x="-118.774807254089" y="148.938897410159" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-19">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-19_pos" unit="mm" x="-157.398486507197" y="107.31247106112" z="-44.65"/>
+      </physvol>
+      <physvol name="HE0-topTube-inner-2-20">
+        <volumeref ref="topTubeElectronicsLogic"/>
+        <position name="HE0-topTube-inner-2-20_pos" unit="mm" x="-182.03661950226" y="56.1508607252771" z="-44.65"/>
+      </physvol>
+    </volume>
+    <volume name="World">
+      <materialref ref="G4_Galactic"/>
+      <solidref ref="world"/>
+      <physvol name="PolyethyleneArea">
+        <volumeref ref="PolyethyleneAreaLogic"/>
+      </physvol>
+      <physvol name="RadialCadmiumLiner">
+        <volumeref ref="RadialCadmiumLinerLogic"/>
+        <position name="RadialCadmiumLiner_pos" unit="mm" x="0" y="0" z="-2.94999999999999"/>
+      </physvol>
+      <physvol name="RadialAluminiumLiner">
+        <volumeref ref="RadialAluminiumLinerLogic"/>
+        <position name="RadialAluminiumLiner_pos" unit="mm" x="0" y="0" z="-2.94999999999999"/>
+      </physvol>
+      <physvol name="LowerCdLiner">
+        <volumeref ref="LowerCdLinerLogic"/>
+        <position name="LowerCdLiner_pos" unit="mm" x="0" y="0" z="-176.7"/>
+      </physvol>
+      <physvol name="LowerAlLiner">
+        <volumeref ref="LowerAlLinerLogic"/>
+        <position name="LowerAlLiner_pos" unit="mm" x="0" y="0" z="-175.75"/>
+      </physvol>
+      <physvol name="UpperAlLiner">
+        <volumeref ref="UpperAlLinerSolid"/>
+        <position name="UpperAlLiner_pos" unit="mm" x="0" y="0" z="175.75"/>
+      </physvol>
+      <physvol name="UpperCdLiner">
+        <volumeref ref="UpperCdLinerLogic"/>
+        <position name="UpperCdLiner_pos" unit="mm" x="0" y="0" z="176.7"/>
+      </physvol>
+      <physvol name="DetectorCavity">
+        <volumeref ref="NMSLVName-DetectorCavity"/>
+      </physvol>
+      <physvol name="LowerPolyePlug">
+        <volumeref ref="LowerPolyePlugLogic"/>
+        <position name="LowerPolyePlug_pos" unit="mm" x="0" y="0" z="-240.4"/>
+      </physvol>
+      <physvol name="UpperPolyePlug">
+        <volumeref ref="UpperPolyePlugLogic"/>
+        <position name="UpperPolyePlug_pos" unit="mm" x="0" y="0" z="240.4"/>
+      </physvol>
+      <physvol name="LowerAlLayer">
+        <volumeref ref="LowerAlLayerLogic"/>
+        <position name="LowerAlLayer_pos" unit="mm" x="0" y="0" z="-309.9"/>
+      </physvol>
+      <physvol name="OuterAlLayer">
+        <volumeref ref="OuterAlLayerLogic"/>
+      </physvol>
+      <physvol name="UpperAlBlock">
+        <volumeref ref="UpperAlBlockLogic"/>
+        <position name="UpperAlBlock_pos" unit="mm" x="0" y="0" z="351.525"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="World"/>
+  </setup>
+
+</gdml>

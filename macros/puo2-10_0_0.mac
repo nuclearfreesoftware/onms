@@ -1,0 +1,43 @@
+# Source Volume & Material
+/NMS/source/material NMSSourceMaterial
+/NMS/source/sourcefromvolume NMSSourceVolume
+
+# Detector Settings
+/NMS/analysis/detectorvolume HE1-He
+/NMS/analysis/lostvolume PolyethyleneArea
+
+
+
+# Source Type and settings
+/NMS/source/sfg false
+/NMS/source/sfn true
+/NMS/source/alpha false
+/NMS/source/neutronAlphaN true
+# /NMS/source/activity   - not given
+
+# AlphaN Settings
+/NMS/source/alphan/directionSampling 0
+/NMS/source/alphan/energySampling 2
+/NMS/source/alphan/positionSampling 0
+# /NMS/source/alphan/energy   - not given
+# /NMS/source/alphan/energyFilename   - not given
+/NMS/source/alphan/activityCalculation 2
+# /NMS/source/alphan/activity   - not given
+
+# Runtime settings
+/random/setSeeds 28607207 36633217
+/NMS/run/runtime 5.0
+/NMS/run/printmodulo 1000
+/NMS/analysis/eventoffset 0	
+
+# Run
+/NMS/run/beamOnRuntime 1
+
+# Create some output
+/NMS/analysis/efficiency 0.546
+/NMS/source/dumpstatus
+/NMS/analysis/writesourceneutronenergies puo2-10_0_0
+/NMS/source/alphan/writeEnergyFile puo2-10_0_0
+/NMS/analysis/showresults
+/NMS/analysis/writeincludepulsetrain true
+/NMS/analysis/writeresults puo2-10_0_0

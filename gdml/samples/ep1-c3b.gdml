@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+  <define>
+    <position name="NMSGDML-SamplePosition" unit="cm" x="0" y="0" z="0" />
+  </define>
+
+  <materials>
+<isotope N="238" Z="94" name="Pu238">
+  <atom unit="g/mole" value="238.049560" />
+</isotope>
+<isotope N="239" Z="94" name="Pu239">
+  <atom unit="g/mole" value="239.052164" />
+</isotope>
+<isotope N="240" Z="94" name="Pu240">
+  <atom unit="g/mole" value="240.053814" />
+</isotope>
+<isotope N="241" Z="94" name="Pu241">
+  <atom unit="g/mole" value="241.056852" />
+</isotope>
+<isotope N="242" Z="94" name="Pu242">
+  <atom unit="g/mole" value="242.058743" />
+</isotope>
+<element name="El-Pu_of_NMSSourceMaterial">
+  <fraction n="0.000000" ref="Pu238" />
+  <fraction n="0.900376" ref="Pu239" />
+  <fraction n="0.099624" ref="Pu240" />
+  <fraction n="0.000000" ref="Pu241" />
+  <fraction n="0.000000" ref="Pu242" />
+</element>
+<material name="NMSSourceMaterial" state="solid">
+  <D unit="g/cm3" value="20.000000" />
+  <fraction n="1.000000" ref="El-Pu_of_NMSSourceMaterial" />
+</material>
+
+  </materials>
+
+  <solids>
+    <tube aunit="deg" deltaphi="360" lunit="cm" name="PuCylinder" rmax="1.99647271233" rmin="0" startphi="0" z="3.99294542466"/>
+  </solids>
+
+  <structure>
+    <volume name="NMSLVName-SampleMother">
+      <materialref ref="NMSSourceMaterial"/>
+      <solidref ref="PuCylinder"/>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="NMSLVName-SampleMother"/>
+  </setup>
+
+</gdml>

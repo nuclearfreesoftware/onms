@@ -55,7 +55,7 @@ private:
   G4String samplefilename;
   G4ThreeVector sampleposition;
   G4ThreeVector samplerotation;
-
+  G4RotationMatrix* pRot;
 };
 
 

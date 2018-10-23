@@ -56,6 +56,7 @@ typedef boost::iostreams::stream<TeeDevice> TeeStream;
 const G4String LVNAME_DETECTOR_CAVITY = "NMSLVName-DetectorCavity";
 const G4String LVNAME_SAMPLE_MOTHER = "NMSLVName-SampleMother";
 const G4String GDML_SAMPLE_POSITION = "NMSGDML-SamplePosition";
+const G4String GDML_SAMPLE_ROTATION = "NMSGDML-SampleRotation";
 
 void usage() {
       G4cout << "Usage:" << G4endl;
@@ -90,7 +91,8 @@ int main(int argc, char** argv)
   // Variables to store command line parameter selections (with default values)
   G4String detectorgdml = "gdml/detector/PSMC.gdml";
   G4String samplegdml = "gdml/samples/pm1.gdml";
-  G4String session = "tcsh";
+//  G4String session = "tcsh";
+  G4String session = "Qt";
   G4bool batch = false;
   G4String macro = "vis.mac";
   G4bool thermal = true;

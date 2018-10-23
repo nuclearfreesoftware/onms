@@ -27,7 +27,7 @@
 
 #include "NMSRunManager.hh"
 
-//#include "Fission.hh"
+#include "Fission.hh"
 #include "NMSMaterialDecaySource.hh"
 #include "NMSPosDistribution.hh"
 

@@ -34,7 +34,7 @@ G4VPhysicalVolume* NMSDetectorConstruction::Construct() {
     sampleposition = sampleparser.GetPosition(GDML_SAMPLE_POSITION);
     samplerotation = sampleparser.GetRotation(GDML_SAMPLE_ROTATION);
 
-    G4RotationMatrix* pRot = new G4RotationMatrix;
+ 	G4RotationMatrix* pRot;
 
     pRot -> rotateX(samplerotation.getX());
     pRot -> rotateY(samplerotation.getY());
